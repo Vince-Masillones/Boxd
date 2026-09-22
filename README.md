@@ -2,7 +2,7 @@
 
 A small full-stack app for browsing movies and TV shows and keeping your own ratings — like a simpler Letterboxd. Built with [TMDB](https://www.themoviedb.org/) (The Movie Database) as the data source.
 
-**Live app:** _add your Netlify URL here after deploying_
+**Live app:** https://stalwart-beignet-a2d746.netlify.app/
 
 ## What it does
 

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Boxd — track what you watch</title>
+<meta name="description" content="Browse movies and TV shows and keep your own ratings." />
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🎞️</text></svg>" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+<header class="site-header">
+  <div class="header-row">
+    <a href="#" class="wordmark" data-nav="browse">Boxd</a>
+
+    <nav class="type-toggle" role="tablist" aria-label="Content type">
+      <button type="button" class="type-btn is-active" data-type="movie" role="tab" aria-selected="true">Movies</button>
+      <button type="button" class="type-btn" data-type="tv" role="tab" aria-selected="false">TV Shows</button>
+    </nav>
+
+    <nav class="view-nav">
+      <button type="button" class="view-link is-active" data-nav="browse">Browse</button>
+      <button type="button" class="view-link" data-nav="ratings">My Ratings <span class="ratings-count" id="ratingsCount" hidden>0</span></button>
+    </nav>
+  </div>
+
+  <div class="search-row">
+    <form id="searchForm" autocomplete="off">
+      <input
+        type="search"
+        id="searchInput"
+        name="q"
+        placeholder="Search for a title…"
+        aria-label="Search titles"
+      />
+      <button type="submit" class="search-btn" aria-label="Search">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+      </button>
+    </form>
+  </div>
+</header>
+
+<main id="main">
+  <div class="section-heading" id="sectionHeading">
+    <h1 id="sectionTitle">Trending this week</h1>
+    <p id="sectionSubtitle" class="muted">The films everyone's talking about right now.</p>
+  </div>
+
+  <div id="status" class="status" hidden></div>
+
+  <section id="grid" class="grid" aria-live="polite"></section>
+
+  <div id="emptyState" class="empty-state" hidden>
+    <p class="empty-title">Nothing here yet.</p>
+    <p class="muted" id="emptyText">Try a different search.</p>
+  </div>
+</main>
+
+<div id="modalOverlay" class="modal-overlay" hidden>
+  <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <button type="button" class="modal-close" id="modalClose" aria-label="Close">&times;</button>
+    <div id="modalBody" class="modal-body"><!-- filled by JS --></div>
+  </div>
+</div>
+
+<footer class="site-footer">
+  <p>Data from <a href="https://www.themoviedb.org/" target="_blank" rel="noopener">The Movie Database</a>. Ratings are stored only in your browser.</p>
+</footer>
+
+<template id="cardTemplate">
+  <article class="card" tabindex="0">
+    <div class="card-poster">
+      <img loading="lazy" alt="" />
+      <div class="card-rating-badge" hidden></div>
+    </div>
+    <div class="card-body">
+      <h3 class="card-title"></h3>
+      <p class="card-meta muted"></p>
+      <div class="card-stars" aria-label="Your rating"></div>
+    </div>
+  </article>
+</template>
+
+<script src="js/app.js" defer></script>
+</body>
+</html>

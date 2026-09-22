@@ -1,0 +1,12 @@
+{
+  "name": "boxd",
+  "version": "1.0.0",
+  "description": "Browse movies and TV shows from TMDB and keep your own ratings.",
+  "private": true,
+  "scripts": {
+    "dev": "netlify dev"
+  },
+  "devDependencies": {
+    "netlify-cli": "^17.0.0"
+  }
+}
